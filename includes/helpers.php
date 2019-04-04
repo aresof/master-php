@@ -44,16 +44,34 @@ function conseguirCategoria($db, $id){
 
     $sql = "SELECT * FROM categorias WHERE id = $id";
     $result = mysqli_query($db, $sql);
-    $categoria = mysqli_fetch_assoc($result);
 
-    return $categoria;
+    return $result;
 }
 
-function conseguirEntradas($db, $limit = null){
+function conseguirEntrada($db, $id){
+        $sql = "SELECT e.*, c.nombre AS 'categoria', CONCAT(u.nombre,' ',u.apellidos) AS usuario FROM entradas e
+                INNER JOIN categorias c ON (e.categoria_id = c.id) 
+                INNER JOIN usuarios u ON (e.usuario_id = u.id) 
+                WHERE e.id = $id
+                ";
+        $entrada = mysqli_query($db, $sql);
+
+        return $entrada;
+}
+
+function conseguirEntradas($db, $limit = null, $categoria = null, $busqueda = null){
 
     $sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e 
-            JOIN categorias c ON (e.categoria_id = c.id)
-            ORDER BY e.id DESC ";
+            JOIN categorias c ON (e.categoria_id = c.id) ";
+    if($categoria){
+        $sql .= "WHERE e.categoria_id = $categoria ";
+    }
+    if($busqueda){
+        $sql .= "WHERE e.titulo LIKE '%$busqueda%' ";
+    }
+
+    $sql .= "ORDER BY e.id DESC ";
+
     if($limit)
         $sql .= "LIMIT $limit";
     $result = mysqli_query($db, $sql);

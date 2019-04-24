@@ -2,39 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8f1f562-8cd1-4025-835a-b34b96715678" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../aprendiendo-php-mvc/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_ficheros/PROYECTO-PHP-Y-MYSQL.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_ficheros/base-de-datos-proyecto1.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_ficheros/blog.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_ficheros/predefinidas.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_ficheros/recursos-proyecto-1.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actualizar-usuario.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assets/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assets/fonts/fuente.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assets/img/cubes.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../borrar-entrada.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../buscar.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../categorias.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cerrar.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crear-categoria.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crear-entrada.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../editar-entrada.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entrada.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entradas.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../guardar-categoria.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../guardar-entrada.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../includes/cabecera.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../includes/conexion.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../includes/helpers.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../includes/lateral.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../includes/pie.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../includes/redireccion.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mis-datos.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../registro.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tienda/PROYECTO-PHP-POO-MVC.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tienda/base-datos-proyecto2.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tienda/recursos-proyecto2.zip" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +19,7 @@
     <session id="2061063305">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
@@ -99,7 +69,7 @@
         <entry file="file://$PROJECT_DIR$/depurar/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+              <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -262,16 +232,15 @@
       <updated>1554839092131</updated>
       <workItem from="1554839093234" duration="3503000" />
       <workItem from="1555490972157" duration="149000" />
-      <workItem from="1555752066676" duration="5202000" />
+      <workItem from="1555752066676" duration="5429000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8854000" />
+    <option name="totallyTimeSpent" value="9081000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1441" y="-164" width="908" height="830" extended-state="0" />
-    <editor active="true" />
+    <frame x="1441" y="-164" width="908" height="581" extended-state="0" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32678983" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -285,7 +254,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32924336" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -349,7 +318,7 @@
     <entry file="file://$PROJECT_DIR$/depurar/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
         </state>
       </provider>
     </entry>

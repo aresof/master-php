@@ -6,7 +6,7 @@
     $cat = mysqli_fetch_assoc($categoria);
 
     if(mysqli_num_rows($categoria) < 1)
-        header('Location: index.php');
+        header('Location: index_maqueta.php');
 ?>
 
     <!-- PRINCIPAL-->

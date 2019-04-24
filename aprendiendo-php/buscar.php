@@ -4,7 +4,7 @@
 <?php
 
 if(!isset($_POST['busqueda'])){
-    header('Location: index.php');
+    header('Location: index_maqueta.php');
 }
 
 ?>

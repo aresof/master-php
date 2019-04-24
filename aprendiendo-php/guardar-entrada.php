@@ -41,7 +41,7 @@ if (isset($_POST)) {
             $sql = "INSERT INTO entradas VALUES (null, '$titulo', '$descripcion', $usuario, $categoria, CURDATE(),'');";
         }
         $query = mysqli_query($db, $sql) or die('Error: '.mysqli_error($db));
-        header('Location: index.php');
+        header('Location: index_maqueta.php');
 
     }else{
         $_SESSION["errores_entrada"] = $errores;

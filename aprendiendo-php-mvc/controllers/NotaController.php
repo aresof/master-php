@@ -21,7 +21,7 @@ class NotaController{
 
         $nota->guardar();
 
-        header("Location: index.php?controller=Nota&action=listar");
+        header("Location: index_maqueta.php?controller=Nota&action=listar");
 
     }
 

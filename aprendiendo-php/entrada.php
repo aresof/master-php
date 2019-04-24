@@ -7,7 +7,7 @@ $entrada = conseguirEntrada($db,$_GET["id"]);
 $ent = mysqli_fetch_assoc($entrada);
 
 if(mysqli_num_rows($entrada) < 1)
-    header('Location: index.php');
+    header('Location: index_maqueta.php');
 ?>
 
     <!-- PRINCIPAL-->

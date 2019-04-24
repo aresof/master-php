@@ -25,6 +25,6 @@ class UsuarioController{
 
         $usuario->guardar();
 
-        header("Location: index.php?controller=Usuario&action=listar");
+        header("Location: index_maqueta.php?controller=Usuario&action=listar");
     }
 }

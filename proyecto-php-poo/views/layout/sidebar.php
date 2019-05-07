@@ -1,6 +1,16 @@
 <div id="content">
     <!-- LATERAL -->
     <aside id="lateral">
+        <div id="carrito" class="block_aside">
+            <h3>Mi carrito</h3>
+            <?php $stats = Utils::statsCarrito() ?>
+            <ul>
+                <li><a href="<?= base_url ?>Carrito/index">Productos (<?= $stats['count'] ?>)</a></li>
+                <li><a href="<?= base_url ?>Carrito/index">Total € (<?= Utils::NumberFormat($stats['total']) ?>)</a></li>
+                <li><a href="<?= base_url ?>Carrito/index">Ver Carrito</a></li>
+            </ul>
+        </div>
+
         <div id="login" class="block_aside">
         <?php if(!isset($_SESSION['identity'])): ?>
 

@@ -49,6 +49,12 @@ class Categoria{
 
     }
 
+    public function getOne(){
+        $result = $this->db->query("SELECT * FROM categorias WHERE id = {$this->id}");
+        return $result;
+
+    }
+
     public function save(){
         $sql = "INSERT INTO categorias VALUES (NULL, '{$this->getNombre()}')";
         $save = $this->db->query($sql) or die("Error: ".$this->db->error);

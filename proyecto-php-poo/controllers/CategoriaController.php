@@ -1,6 +1,7 @@
 <?php
 
 require_once 'models/categoria.php';
+require_once 'models/producto.php';
 
 class CategoriaController{
 
@@ -33,5 +34,22 @@ class CategoriaController{
         else $_SESSION['registro'] = 'Registro fallido';
 
         Utils::redireccion(base_url.'Categoria/crear');
+    }
+
+    public function ver(){
+
+        if(isset($_GET["id"])){
+            //Conseguir categoria
+            $categoria = new Categoria();
+            $categoria->setId($_GET["id"]);
+            $cat = $categoria->getOne()->fetch_object();
+
+            //Conseguir productos
+            $producto = new Producto();
+            $producto->setCategoriaId($_GET["id"]);
+            $productos = $producto->getAllCategory();
+
+        }
+        require_once 'views/categoria/ver.php';
     }
 }

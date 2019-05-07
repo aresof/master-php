@@ -168,10 +168,53 @@ class Producto {
         return $result;
     }
 
+    public function getAllCategory(){
+        $result = $this->db->query("
+          SELECT productos.*, DATE_FORMAT(productos.`fecha`, '%d/%m/%Y') as Fec, categorias.`Nombre` as CatNombre 
+          FROM productos 
+          JOIN categorias ON (productos.`categoria_id` = categorias.`id`) 
+          WHERE productos.`categoria_id` = {$this->categoria_id}");
+        return $result;
+    }
+
+    public function getRandom($limit){
+        $sql = "SELECT productos.*, DATE_FORMAT(productos.`fecha`, '%d/%m/%Y') as Fec, categorias.`Nombre` as CatNombre FROM productos JOIN categorias ON (productos.`categoria_id` = categorias.`id`) ORDER BY RAND() LIMIT $limit";
+        $result = $this->db->query($sql);
+        return $result;
+    }
+
+    public function getOne(){
+        $result = $this->db->query("SELECT productos.*, DATE_FORMAT(productos.`fecha`, '%d/%m/%Y') as Fec, categorias.`Nombre` as CatNombre FROM productos JOIN categorias ON (productos.`categoria_id` = categorias.`id`) WHERE productos.`id`= {$this->id}");
+        return $result->fetch_object();
+    }
+
     public function save(){
         $sql = "INSERT INTO productos VALUES (NULL,{$this->categoria_id},'{$this->nombre}','{$this->descripcion}','{$this->precio}','{$this->stock}','{$this->oferta}','{$this->fecha}','{$this->imagen}')";
         $save = $this->db->query($sql) or die("Error: ".$this->db->error);
         return $save;
+    }
+
+    public function delete(){
+        $sql = "DELETE FROM productos WHERE id={$this->id}";
+        return $this->db->query($sql);
+    }
+
+    public function update(){
+        $sql = "UPDATE productos SET 
+          categoria_id = {$this->categoria_id},
+          nombre = '{$this->nombre}',
+          descripcion = '{$this->descripcion}',
+          precio = '{$this->precio}',
+          stock = '{$this->stock}',
+          oferta = '{$this->oferta}',
+          fecha = '{$this->fecha}' ";
+
+        if ($this->imagen != null)
+            $sql .= ", imagen = '{$this->imagen}' ";
+
+        $sql.=" WHERE id = {$this->id}";
+        $update = $this->db->query($sql) or die("Error: ".$this->db->error);
+        return $update;
     }
 
 }

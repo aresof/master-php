@@ -29,10 +29,11 @@
 
             <h3><?= $_SESSION['identity']->nombre.' '.$_SESSION['identity']->apellidos ?></h3>
             <ul>
-                <li><a href="<?= base_url ?>Pedido/index">Mis pedidos</a></li>
+                <li><a href="<?= base_url ?>Pedido/mis_pedidos">Mis pedidos</a></li>
                 <?php if(isset($_SESSION['admin'])): ?>
                     <li><a href="<?= base_url ?>Categoria/index">Categorías</a></li>
                     <li><a href="<?= base_url ?>Producto/index">Productos</a></li>
+                    <li><a href="<?= base_url ?>Pedido/gestion">Pedidos</a></li>
                 <?php endif; ?>
                 <li><a href="<?= base_url ?>Usuario/logout">Cerrar Sesión</a></li>
             </ul>

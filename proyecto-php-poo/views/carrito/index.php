@@ -1,5 +1,5 @@
 <h1>Carrito de la compra</h1>
-
+<?php if(isset($_SESSION['carrito'])): ?>
 <table>
     <tr>
         <th>Imagen</th>
@@ -20,20 +20,32 @@
             <?php endif; ?>
             <td><a href="<?=base_url?>Producto/ver&id=<?= $prod->id ?>"> <?= $prod->nombre ?></a></td>
             <td><?= Utils::NumberFormat($prod->precio) ?></td>
-            <td><?= $item['unidades'] ?></td>
+            <td>
+                <?= $item['unidades'] ?>
+                <div class="updown-unidades">
+                    <a href="<?= base_url ?>Carrito/up&indice=<?= $indice ?>" class="button">+</a>
+                    <a href="<?= base_url ?>Carrito/down&indice=<?= $indice ?>" class="button">-</a>
+                </div>
+            </td>
             <td><?= Utils::NumberFormat($prod->precio * $item['unidades']) ?></td>
             <td>
-                <a href="<?= base_url ?>Producto/editar&id=<?= $prod->id ?>" class="button button-gestion">Editar</a>
-                <a href="<?= base_url ?>Producto/eliminar&id=<?= $prod->id ?>" class="button button-gestion button-red">Borrar</a>
+                <a href="<?= base_url ?>Carrito/delete&indice=<?= $indice ?>" class="button button-carrito button-red">Borrar</a>
             </td>
         </tr>
     <?php endforeach; ?>
 </table>
 
 </br>
+<div class="delete-carrito">
+    <a href="<?= base_url ?>Carrito/delete_all" class="button button-delete button-red">Vaciar Carrito</a>
+</div>
 
 <div class="total-carrito">
     <?php $stats = Utils::statsCarrito(); ?>
     <h3>Precio Total: <?= $stats['total'] ?> €</h3>
-    <a href="" class="button button-pedido">Hacer Pedido</a>
+    <a href="<?= base_url ?>Pedido/hacer" class="button button-pedido">Hacer Pedido</a>
 </div>
+
+<?php else: ?>
+<h3>El carrito está vacío</h3>
+<?php endif; ?>

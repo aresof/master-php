@@ -19,6 +19,12 @@ class Utils{
         }
     }
 
+    public static function isIdentity(){
+        if(!isset($_SESSION['identity'])) {
+            self::redireccion(base_url);
+        }
+    }
+
     public static function NumberFormat($num){
         return number_format($num, 2, ',', '.');
     }

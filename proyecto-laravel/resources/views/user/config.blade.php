@@ -5,11 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-            @if(session('message'))
-                <div class="alert alert-success">
-                  {{ session('message') }}
-                </div>
-            @endif
+            @include('includes.message')
+
             <div class="card">
                 <div class="card-header">Configuración de mi cuenta</div>
 
@@ -79,7 +76,7 @@
 
                             <div class="col-md-6">
                                 @include('includes.avatar')
-                                <input id="name" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path" value="{{ Auth::user()->image_path }}" required autofocus>
+                                <input id="name" type="file" class="form-control{{ $errors->has('image_path') ? ' is-invalid' : '' }}" name="image_path" value="{{ Auth::user()->image_path }}" autofocus>
 
                                 @if ($errors->has('image_path'))
                                     <span class="invalid-feedback" role="alert">

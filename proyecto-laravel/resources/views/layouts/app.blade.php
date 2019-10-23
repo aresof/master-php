@@ -50,11 +50,11 @@
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="" class="href">Inicio</a>
+                                <a class="nav-link" href="{{ route('home') }}" class="href">Inicio</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="" class="href">Subir imagen</a>
+                                <a class="nav-link" href="{{ route('image.create') }}" class="href">Subir imagen</a>
                             </li>
 
                             <li>

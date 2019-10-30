@@ -7,7 +7,7 @@
 
             @include('includes.message')
 
-                <div class="card pub_image">
+                <div class="card pub_image pub_image_detail">
                     <div class="card-header">
                         @if($image->user->image)
                             <div class="container-avatar">
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="image-container">
+                        <div class="image-container image-detail">
                             <img src="{{ route('image.file', ['filename' => $image->image_path]) }}"/>
                         </div>
                     </div>
@@ -32,13 +32,52 @@
                         <p>{{ $image->description }}</p>
                     </div>
                     <div class="likes">
-                        <img src="{{ asset('images/facebook-like-64.png') }}"/>
+                        <!-- Comprobar si like es del usuario autentificado -->
+                        <?php $user_like = false; ?>
+                        @foreach($image->likes as $like)
+                            @if($like->user_id == Auth::user()->id)
+                                <?php $user_like = true; ?>
+                            @endif
+                        @endforeach
+
+                        @if($user_like)
+                            <img class="btn-dislike" data-id="{{ $image->id }}" src="{{ asset('images/facebook-like-64_red.png') }}"/>
+                        @else
+                            <img class="btn-like" data-id="{{ $image->id }}" src="{{ asset('images/facebook-like-64.png') }}"/>
+                        @endif
+                        <span class="number_likes" data-id="{{ $image->id }}">{{ count($image->likes) }}</span>
                     </div>
+                    <div class="clearfix"></div>
+
                     <div class="comments">
-                        <a href="" class="btn btn-sm btn-warning btn-comments">
-                            Comentarios ({{ count($image->comments) }})
-                        </a>
+                            <h2>Comentarios ({{ count($image->comments) }})</h2>
+                        <hr>
+                        <form method="POST" action="{{ route('comment.save') }}">
+                            @csrf
+                            <input type="hidden" name="image_id" value="{{ $image->id }}" />
+                            <p>
+                                <textarea name="content" id="" cols="30" rows="4" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}"></textarea>
+                                @if ($errors->has('content'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('content') }}</strong>
+                                    </span>
+                                @endif
+                            </p>
+                            <button type="submit" class="btn btn-success"> Enviar </button>
+                        </form>
                     </div>
+                    <hr/>
+                    @foreach($image->comments as $comment)
+                        <div class="comments">
+                           <span class="nickname">{{ '@'.$comment->user->nick }} | </span>
+                           <span class="nickname date">{{ \FormatTime::LongTimeFilter($comment->created_at) }}</span>
+                           <p>{{ $comment->content }}<br>
+                               @if(Auth::check() && ($comment->user_id == Auth::user()->id || $comment->image->user_id == Auth::user()->id))
+                                    <a href="{{ route('comment.delete', ['id' => $comment->id]) }}" class="btn btn-sm btn-danger">Eliminar</a>
+                               @endif
+                           </p>
+                        </div>
+                    @endforeach
 
                 </div>
 

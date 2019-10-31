@@ -44,4 +44,38 @@ class CarritoController
         }
     }
 
+    public function delete_all(){
+        unset($_SESSION['carrito']);
+        Utils::redireccion(base_url . "Carrito/index");
+    }
+
+    public function delete(){
+
+        if (isset($_GET['indice'])) {
+            unset($_SESSION['carrito'][$_GET['indice']]);
+        }
+        Utils::redireccion(base_url . "Carrito/index");
+    }
+
+    public function up(){
+        if (isset($_GET['indice'])){
+            $_SESSION['carrito'][$_GET['indice']]['unidades']++;
+        }
+
+        Utils::redireccion(base_url . "Carrito/index");
+    }
+
+    public function down(){
+        if (isset($_GET['indice'])){
+
+            $_SESSION['carrito'][$_GET['indice']]['unidades']--;
+
+            if($_SESSION['carrito'][$_GET['indice']]['unidades'] == 0){
+                unset($_SESSION['carrito'][$_GET['indice']]);
+            }
+        }
+
+        Utils::redireccion(base_url . "Carrito/index");
+    }
+
 }

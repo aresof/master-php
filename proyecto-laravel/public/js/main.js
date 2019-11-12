@@ -85,4 +85,10 @@ window.addEventListener("load", function(){
         });
     }
     dislike();
+
+    //BUSCADOR
+    $("#buscador").submit(function () {
+        $(this).attr('action',url+'/users/'+$("#buscador #search").val());
+    });
+
 });

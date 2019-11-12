@@ -11,53 +11,35 @@
 |
 */
 
-
-/*
-use App\Image;
-
-Route::get('/', function () {
-
-    $images = Image::all();
-
-    foreach ($images as $image){
-        echo '<pre>';
-        echo $image->image_path.'<br/>';
-        echo $image->user->name.'<br/>';
-        echo '</pre>';
-
-        if(count($image->comments) > 0){
-            echo '<b>Comentarios: </b>';
-            foreach ($image->comments as $comment) {
-                echo $comment->user->name.' '.$comment->user->surname . ': ';
-                echo $comment->content . '<br/>';
-            }
-        }
-
-        echo '<b>Likes: </b>'.count($image->likes);
-        echo '<hr/>';
-    }
-
-
-
-    die();
-    return view('welcome');
-});*/
-
+// GENERALES
 Auth::routes();
-
 Route::get('/', 'HomeController@index')->name('home');
 
+// USUARIO
 Route::get('/configuracion', 'UserController@config')->name('config');
 Route::post('/user/update', 'UserController@update')->name('user.update');
 Route::get('/user/avatar/{filename}', 'UserController@getImage')->name('user.avatar');
+Route::get('/profile/{id}', 'UserController@profile')->name('profile');
+Route::get('/users/{search?}', 'UserController@index')->name('users');
 
+//IMAGEN
 Route::get('/subir-imagen', 'ImageController@create')->name('image.create');
 Route::post('/image/save', 'ImageController@save')->name('image.save');
 Route::get('/image/file/{filename}', 'ImageController@getImage')->name('image.file');
 Route::get('/image/{id}', 'ImageController@detail')->name('image.detail');
+Route::get('/image/delete/{id}', 'ImageController@delete')->name('image.delete');
+Route::get('/image/edit/{id}', 'ImageController@edit')->name('image.edit');
+Route::post('/image/update', 'ImageController@update')->name('image.update');
+
+//COMENTARIOS
 Route::post('/comment/save', 'CommentController@save')->name('comment.save');
 Route::get('/comment/delete/{id}', 'CommentController@delete')->name('comment.delete');
+
+//LIKES
 Route::get('/like/{id}', 'LikeController@like')->name('like.save');
 Route::get('/dislike/{id}', 'LikeController@dislike')->name('like.delete');
 Route::get('/likes', 'LikeController@index')->name('likes');
+
+
+
 
